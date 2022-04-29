@@ -6,27 +6,27 @@ function getEle(id) {
 }
 
 function xetSoNguyenTo(i) {
-    var result;
-    if (i % j === 0 && i % j ===0) {
-        result = true;
-    } else {
-        result = false;
+    var count = 0;
+    for (j = 1; j <= i; j++) {
+        if (i % j === 0) {
+            count += 1;
+        } else {
+            count += 0;
+        }
     }
-    return result;
+    return count;
 }
 
 getEle("btnBai5").onclick = function () {
     var n = getEle("soN_5").value * 1;
-    var soNguyenTo = xetSoNguyenTo;
-    var result ="";
-    for (i = 0; i <= n; i++) {
-        for (j = 0; j <= i; j++) {
-            if (soNguyenTo) {
-                result += i + " ";
-            } else {
-                result += "";
-            }
+    var result = "";
+    for (i = 1; i <= n; i++) {
+        var soNguyenTo = xetSoNguyenTo(i);
+        if (soNguyenTo <= 2) {
+            result += i + ' ';
+        } else if (soNguyenTo > 2) {
+            result += ''; 
         }
     }
-    getEle("footerBai5").innerHTML = result + "";
+    getEle("footerBai5").innerHTML = "Các số nguyên tố là: " +  result;
 }
